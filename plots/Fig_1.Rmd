@@ -1,0 +1,73 @@
+---
+title: 'Fig1'
+author: "Kevin Wirtz (kevin.wirtz@unistra.fr)"
+date: "Updated `r format(Sys.time(), '%B %d, %Y')`"
+output:
+  html_notebook:
+    code_folding: hide
+    df_print: paged
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+    theme: flatly
+---
+
+```{r setup, include=FALSE}
+
+rm(list = ls(all.names = TRUE)) #will clear all objects includes hidden objects.
+gc() #free up memrory and report the memory usage.
+graphics.off()
+
+Sys.setenv(LANG = "en") # For english language
+options(scipen = 5) # To deactivate annoying scientific number notation
+library(magrittr) # For extra-piping operators (eg. %<>%)
+library(tidyverse) # Collection of all the good stuff like dplyr, ggplot2 ect.
+library(cowplot)
+library(ggpubr)
+library(magick)
+```
+
+# Fig1: #### International
+```{r} 
+
+df <- read_csv("../plots/Fig1.csv")
+df %<>% filter(year>1980)
+```
+
+```{r} 
+oma2 <- c(0.3,0,0,0.3)
+
+colors <- c("Solo authors" = "#1f77b4", "Company participation" = "#ff7f0e")
+
+
+fig1 = ggplot(df, aes(x = year)) + 
+  geom_line(size=1.25,aes(y = n_solo/n, color='share_solo_authors')) + 
+  geom_line(size=1.25,aes(y = n_inter/not_inter, color='share_international')) +
+  scale_color_manual(name = "Group",
+                     values = c( "share_solo_authors" = "#1f77b4", "share_international" = "#ff7f0e"),
+                     labels = c( "Share international ","Share solo aut")) +
+  labs(x = "Year",
+         y = "Share",
+         color = "Legend") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 12),
+      axis.text.y = element_text(size = 12),
+      axis.title.x = element_text(size = 12),
+      axis.title.y = element_text(size = 12),
+      panel.border = element_rect(colour = "black", fill=NA, size=1),
+      plot.margin = unit(oma2, "cm"),
+      panel.grid.major = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.background = element_blank(),
+      legend.key=element_blank(),
+      legend.title=element_blank(),
+      legend.position="top",
+      legend.text=element_text(size = 12)) 
+fig1
+
+filename <- "../plots/Fig1.pdf"
+pdf(file=filename, width=8, height=3, family="Helvetica", pointsize=6)
+fig1
+dev.off()
+
+```
