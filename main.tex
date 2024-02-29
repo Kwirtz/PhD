@@ -1,0 +1,75 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% one-sided or two-sided %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt]{report}
+\usepackage{import}
+\usepackage{packages}
+\usepackage{SETUP}
+
+
+
+\begin{document}
+\input{1_title}
+
+\setcounter{page}{0}
+\pageblanche
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% CONFORMITEES %%%%%%%%%%%%%%%%%%%%%%%
+\input{conformitées/dedicace} % Si pas de dédicace laissez, une page blanche la remplacera
+\input{conformitées/opinions}
+\pageblanche
+\input{conformitées/declaration_honneur}
+\pageblanche
+
+%%%%%%%%%%%%%%%%%%%%%%%%% REMERCIEMENTS %%%%%%%%%%%%%%%%%%%%%%%
+\input{2_acknowledgement}
+
+%%%%%%%%%%%%%%%%% SET PAGE COUNTER + TABLE OF CONTENTS %%%%%%%%
+\setcounter{secnumdepth}{3}
+\pageblanche
+\tableofcontents
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\thispagestyle{empty}
+\onehalfspacing
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% INTRO %%%%%%%%%%%%%%%%%%%%
+\input{0_Introduction/main}
+\input{0_Introduction/fr}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CHAPTERS %%%%%%%%%%%%%%%%
+
+\input{1_chapter1/main}
+\newpage
+
+\input{2_chapter2/main}
+\newpage
+
+\input{3_chapter3/main}
+\newpage
+
+\input{4_chapter4/main}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% CONCLUSIONS %%%%%%%%%%%%%%%
+\input{5_Conclusion/main}
+\input{5_Conclusion/fr}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Bibliography %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\bibname}{Bibliography} 
+\bibliographystyle{unsrt}
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliography{refs}
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% List of figures %%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addcontentsline{toc}{chapter}{List of figures}
+\listoffigures 
+\newpage
+\addcontentsline{toc}{chapter}{List of tables}
+\listoftables
+\newpage
+%\input{references}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Appendix %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pageblanche
+\input{4_back_cover}
+\end{document}

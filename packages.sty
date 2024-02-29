@@ -1,0 +1,103 @@
+\ProvidesPackage{packages}
+\usepackage{amsmath}
+\usepackage{lipsum} 
+\usepackage[top=2.5cm, bottom=3cm]{geometry}
+\usepackage{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{csquotes}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+\usepackage[document]{ragged2e}
+\usepackage{pythonhighlight}
+\bibliographystyle{abbrvnat}
+\usepackage{pdflscape}
+\usepackage{longtable}
+\usepackage{epstopdf}
+\usepackage[flushleft]{threeparttable}
+\usepackage{comment}
+\usepackage{tikz}
+\usepackage{standalone}
+\usepackage{array}
+\usepackage{adjustbox}
+\usepackage{svg}
+\usepackage{dutchcal}
+\usepackage{changepage}
+\usepackage{dutchcal}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{soul}
+\usepackage{float}
+\usetikzlibrary{mindmap,trees}
+\usepackage{stackengine}
+\usepackage{afterpage}
+\usepackage[french,english]{babel}
+
+\usepackage{rotating}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Fancy heading on all pages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RE]{\rightmark}
+\fancyhead[LO]{\leftmark}
+\fancyfoot[LO,RE]{\thepage}
+
+\fancypagestyle{plain}{% % <-- this is new
+\fancyhf{} 
+\fancyfoot[LO,RE]{\thepage} % same placement as with page style "fancy"
+\renewcommand{\headrulewidth}{0pt}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Bibliography Style %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+%\bibliographystyle{unsrt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+\newenvironment{chapabstract}[1]{%
+    \begin{center}%
+    \ifx&#1&%
+      % #1 is empty
+    \else
+      % #1 is nonempty
+      This chapter was co-authored with \\[0.2cm]
+      \Large{#1} \\[0.5cm]
+    \fi
+    \large{\textbf{Summary of the chapter}}
+    \end{center}}%
+   {\par}
+\makeatother
+
+
+\newcommand{\toif}[1]{%
+    \ifx&#1&%
+    \else \textit{#1}
+    \fi
+    }
+\newcommand\kev[1]{\textcolor{orange}{\textbf{Kev: #1}}}
+
+\newcommand\pp[1]{\textcolor{red}{\textbf{PiR: #1}}}
+
+\newcolumntype{R}[2]{%
+    >{\adjustbox{angle=#1,lap=\width-(#2)}\bgroup}%
+    l%
+    <{\egroup}%
+}
+\newcommand*\rot{\multicolumn{1}{R{75}{1em}}}% no optional argument here, please!
+
+\newcommand{\HRule}{\rule{\linewidth}{0.3mm}}
+
+\renewcommand{\arraystretch}{1.5}
+
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+\newcommand{\pageblanche}{\newpage\thispagestyle{empty}\vspace*{\fill}}

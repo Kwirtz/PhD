@@ -1,0 +1,485 @@
+\chapter{Unpacking Scientific Creativity: A Team Composition Perspective}
+\markboth{CHAPTER 2. UNPACKING SCIENTIFIC CREATIVITY}{CHAPTER 2. UNPACKING SCIENTIFIC CREATIVITY}
+
+\begin{chapabstract}{\small Pierre \textsc{Pelletier}} % if co-authored, else juste start by \begin{chapabstract}{} as in chapter 2
+     \small This paper investigates the relationship between cognitive diversity within scientific teams and their ability to generate innovative ideas and gain scientific recognition. We propose a novel author-level metric based on the semantic representation of researchers' past publications to measure cognitive diversity at individual and team levels. Using PubMed Knowledge Graph (PKG), we analyze the impact of cognitive diversity on novelty, as measured by combinatorial novelty indicators and peer labels on Faculty Opinion. We assessed scientific impact through citations and disruption indicators. Cognitive diversity between team members appears to be always beneficial to combine more distant knowledge. We show that while the effect is positive, it is marginally decreasing. Our findings reveal also that within-team average exploratory profiles follow an inverse U-shaped relationship with combinatorial novelty and citation impact. We show that the presence of highly exploratory individuals is profitable to generate distant knowledge combinations only when balanced by a significant proportion of highly exploitative individuals. Also, teams with a high share of exploitative profiles consolidate science, while those with a high share of both profiles disrupt it. These results emphasise the implication of team composition in scientific creativity, suggesting that combining these two types of individuals leads to the most disruptive and distant knowledge combinations. %Our findings underscore the importance of having only few highly exploratory individuals to optimize knowledge production. Their novel perspectives must be investigated and discussed by specialized team members who can capitalize on these ideas and integrate them into existing scientific paradigms.
+\end{chapabstract}
+
+
+\newpage
+
+
+\section{Introduction}
+
+Creativity is a crucial driving force in fostering the production of new knowledge in an ever-growing landscape of scientific research and technological innovation \citep{geuna1999economics,amendola2014novelty,witt2016propositions}. A broadly accepted definition of creativity assumes a bipartite composition involving a combination of novelty and effectiveness \citep{runco2012standard}. As science moves towards a team-based model \citep{wuchty2007increasing}, the creativity of scientific publications should be studied from a social perspective. The cognitive dimension (i.e. differences in thinking, problem-solving approaches, and perspectives among individuals) plays a crucial role in enabling exchange of information and creation of new knowledge \citep{nooteboom2000learning,nooteboom2007optimal}. It is induced by individuals' characteristics and the trade-off carried out between \textit{exploration} and \textit{exploitation} \citep{march1991exploration} of the knowledge space during their career. In the context of science, exploration involves actively pursuing the expansion of one's understanding and curiosity across various areas of knowledge. On the other hand, exploitation refers to individuals specializing in a specific field and continuously building upon their expertise in that area. The presence of individuals with exploratory profiles appears to facilitate communication among team members who are cognitively distant and foster creativity as the intersection of different perspectives is commonly required to solve complex scientific problems \citep{page2007}.
+
+This paper aims to study the extent to which the exploratory nature of scholars and the cognitive diversity of scientific teams shape their ability to generate innovative ideas and obtain scientific recognition. We propose a new author-level measure of cognitive diversity based on the semantic representation of their past papers; this metric allows us to proxy both intra-individual and inter-individual cognitive dimensions and their impacts on creativity in science.
+
+ 
+In scientific creativity, originality and success emerge as two essential components \citep{runco2012standard}. However, the focus has predominantly shifted towards success. %While citations provide an invaluable source of information to track knowledge flow, several critics argue against using the citation indicator as an evaluation measure %\footnote{ \justifying The initial criticism of citation counts to gauge article impact lies in the difficulty of comparing fields (and sometimes within fields). Citing incentives are heterogeneous (and not always relevant), and scientific entities can hardly be evaluated on citation counts basis alone \citep{garfield1979citation,simkin2002read,bornmann2008citation,zhu2015measuring}. The variation in the number of scientists across disciplines, the self-citation phenomenon, the considered citation time windows, the occurrence of the citation within the text (i.e., its relative importance), and the reason for the presence of the citations are all problems that plague citation count usage \citep{catalini2015incidence, zhu2015measuring, waltman2016review}. Nowadays, such ambiguities can be addressed through normalization, various counting methods, or sophisticated algorithms \citep{xu2015citation, waltman2016review,wu2022metrics}. Additionally, disruption measures, as introduced by \cite{wu2019large}, serve as an alternative to traditional impact metrics, offering a new perspective on assessing research contributions.}. 
+The excessive emphasis on success through measures such as citation counts for articles or authors has been found to constrain novelty and originality by providing limited incentives for researchers, ultimately leading to suboptimal research choices.  
+The reliance on an impact metric to reward and evaluate researchers created a harmful behavior whereby scientists maximize the metric to become more appealing to funding agencies or institutions. As Goodhart's law states, ``\textit{when a measure becomes a target, it ceases to be a good measure}'' \citep{goodhart1984monetary}. The h-index, although heavily criticized, became a central evaluation instrument of researchers \citep{costas2018reflections}. And this negatively impacts novelty as innovative research tends to be less cited in the short run \citep{wang2017bias}. Researchers are discouraged from opting for a more exploratory approach when developing a research question, as work that is too innovative tends to be rejected when it deviates too much from the established paradigm \citep{carayol2007sequential,trapido2015novelty}. 
+
+
+%--------------------------------
+Career choices are directly affected by this phenomenon. Given the heterogeneity in terms of the impact of novel research, researchers have less incentive to produce too innovative work because of the uncertainty linked with novel research. In the short term, individuals might turn to more conventional research questions to maximise their h-index while minimizing the risk associated with novel research.%biais maximising h-index
+The bias toward maximizing the h-index already has a tangible impact on limiting novelty in various research fields. The imbalance between growth in the scientific workforce and research funding has led to 'hyper-competition' in the medical sciences; the scientific system favors individuals who can ensure outcomes over those with potentially groundbreaking ideas that might disrupt the field \citep{alberts2014rescuing}. Such a focus of the researcher on his or her impact is done at the expense of his or her novelty, showing a clear disconnection between the goal of science and its operationalization.
+%------------------------------
+
+ %novelty
+One of the goals of science is to advance the boundary of the knowledge space \citep{shi2015weaving,witt2016propositions,veugelers2019scientific}. The novelty (also referred to as originality or invention) lies at the cornerstone of innovative research, bridging existing knowledge and unexplored scientific territories. Effectiveness, on the other hand, refers to the recognition attributed to this novelty. Novelty is at the foundation of peer recognition and acts as a ``reward system'' wherein the individual credited with the initial discovery garners recognition. \citep{merton1957priorities,stephan1996economics,carayol2019}. Novelty is crucial for scientists to develop new solutions to the grand challenges of the century (climate change, poverty, global pandemics, and others) \citep{petersen2021grand}. Highly innovative research is frequently referred to as ``High-Risk High-Reward'' (HRHR) to reflect its high volatility of outcomes (i.e., novelty does not imply effectiveness). In particular, highly novel research receives more citations on average, but the uncertainty is also more considerable \citep{wang2017bias}. % a quoi ca sert
+Funding opportunities are limited for innovative research due to its risky nature \citep{ayoubi2021does,ocde,franzoni2022funding}. 
+Multiple grant initiatives try to support HRHR research, and funding decisions are all based on expert judgment \citep{ocde}. % biais novelty
+But there is a direct bias towards novelty when scholars evaluate a peer's work \citep{wang2017bias,ayoubi2021does} and the effect is accentuated by the intellectual distance with the examiner \citep{boudreau2016looking}. Measures such as novelty indicators attempt to estimate the originality of a document and might guide experts to support innovative research. % pq il faut faire l'étude
+Yet, these novelty indicators are still relatively recent and understudied as it is mostly intended to explain success. As a result, it is essential to explore and validate new methods to understand better how to detect potential innovative and impactful research based on different criteria than past novelty or previous success.
+
+
+
+%diversity in research
+%This raises concerns regarding the diversity of research. \citep{klinger2020narrowing} reported a narrowing of AI research by combining topic modelling and various diversity metrics. This lack of diversity in AI research could lead to a lock-in of the technology trajectory, which could be detrimental considering its pervasiveness and current societal impact. Lock-in can be identified in both technology and scientific fields \citep{frenken1998simulating}, to mitigate them, it is beneficial to provide more support for riskier research projects. 
+
+
+
+
+%The pursuit of novelty and its recognition in the scientific community is central to expanding knowledge boundaries and developing innovative solutions.
+% As a result, it is essential to explore and validate new methods to better understand ce qui favorise cette nouveauté, et pour comprendre comment on peut apréhender la propension d'une équipe a faire de la recherche nouvelle et successfull selon d'autre critère que la nouveauté ou le succés passé.  capture and quantify novelty to encourage and reward innovative research. The development of such measures must consider the limitations and biases associated with citation behaviour and keyword usage, aiming to provide a robust, comprehensive, and widely applicable assessment of scientific novelty.
+ 
+
+%Structurally, novelty indicators do not cause similar issues as citation counts in the scientific system. Still, similar concerns on the input of these metrics can be raised when based on citations or keywords. Citations are often incomplete or biased, citing the wrong source is extremely common, and authors typically do not read most of the articles mentioned. \cite{simkin2002read} estimates that only 20\% of references are actually read. Citing an article for the wrong reason gives other researchers a biased representation of the contribution that could be reflected in subsequent studies(\cite{arts2021natural} and cited in).\cite{tahamtan2018creativity} conducted a qualitative study showing that most groundbreaking articles only use a handful of references during the creative process if any at all. Criticism can also be levelled against keywords, as they can be used as tools to target audiences, potentially giving a misconception of the novelty of the document (\href{https://scientific-publishing.webshop.elsevier.com/publication-recognition/importance-strategic-keywords-in-research-papers/}). In addition, there is a multitude of different types of keywords that overlap to varying degrees. Therefore, great caution is essential when determining which keyword class to use, and further study on the topic is still required \citep{valderrama2021comparison,lee2010comparison}. More generally, these different indicators do not all seem equally effective, as they struggle to capture the actual novelty of an article and to distinguish it from interdisciplinarity \citep{fontana2020new, bornmann2019do}. In contrast to impact measurement, novelty analysis in science offers a broader range of methodologies than the raw use of references and their journals. Recent algorithms use text embedding and examine the distance of the references\citep{shibayama2021measuring}. Similar to other measures, it correlates with future citations, but further formal comparison with other existing indicators is still needed. The multitude of indicators might lead authors using these measures to cherry-pick the most convenient in terms of results, implying potential mistaken recommendations \citep{foster2021surprise}.\\
+%------------------------------
+
+
+Not all idea combinations are worth exploring, hence the challenge of distinguishing between novel and impactful ones. \citep{march1991exploration}  distinguishes two different strategies for invention in organizations: ``Exploration and exploitation''. Exploitation focuses on a combination of ideas that are closely related to each other, thus representing a low-risk strategy. On the other hand, exploration represents the navigation through the knowledge space to combine more distant ideas, inducing more volatile results. \cite{march1991exploration} supports the idea that a mix of exploitation and exploration is the key to organization's survival. Put differently, producing a valuable invention would require a proper mix of typical and atypical combinations of knowledge, as seen in \cite{uzzi2013atypical}. This dichotomy has been studied in different domains, as mentioned in \cite{foster2015tradition} (e.g., "conformity" versus "dissent" in the philosophy of science), and can also be applied to research. As the body of knowledge in science expands, researchers increasingly specialize their competencies \citep{jones2008multi, jones2009burden} and thus are better able to recombine information locally in the knowledge space, facing incentives to collaborate \citep{fleming2001recombinant, boudreau2016looking}. Science is seen as a social phenomenon \citep{fleck2012genesis}. Indeed, agents that recombine knowledge are individuals embedded in a social context, and cognitive and social phenomena strongly influence the invention process \citep{fleming2001recombinant}. Team size has been shown to impact creativity \citep{paulus2003group, shin2007educational, wuchty2007increasing, falk2011mapping, erren2017small, mueller2019building}; however, the authors' characteristics have not been adequately considered in the process as current novelty indicators primarily focus on the information \textit{within} a document\footnote{ \justifying E.g. references, text, keywords. A detailed review of classical re-combinatory novelty indicators can be found in \cite{pelletier2022novelpy}.}. We contend here that the cognitive distance between co-authors and the team composition of a research paper may be among the most critical factors influencing knowledge creation.
+So, based on the concept of exploration and exploitation, we propose an indicator that serves as a proxy for exploratory \textit{vs.} exploitative trade-off at both the individual and team levels through past publications. In a nutshell, our indicator measures the cognitive distance between team members as well as the individual propensity to work on various subjects.
+
+
+
+ We are unaware of previous studies that have used individuals' past research experiences to investigate how the cognitive dimension influences the novelty and recognition of the resulting articles. Note that we do not consider our indicator as a replacement for current novelty indicators but rather as a tool that could enhance our understanding of the mechanisms behind creativity. In fact, by incorporating the cognitive dimension into novelty studies, we can develop a more comprehensive understanding of the complex relationship between cognitive aspects, interdisciplinary efforts, and the nature of scientific innovation. Furthermore, examining these questions enables us to provide valuable insights and guidance for researchers and institutions striving to enhance scientific progress while avoiding potentially misleading interpretations of research performance measurement.
+%------------------------------
+
+Using PubMed Knowledge Graph (PKG), we empirically investigate the role of these cognitive diversities in the production of novel research outcomes and the ability to obtain scientific recognition. We performed the analysis on novelty on five combinatorial novelty indicators \citep{uzzi2013atypical,lee2015creativity,foster2015tradition,wang2017bias,shibayama2021measuring}, both on references and MeSH terms, as well as on perceived novelty, using labels submitted by researchers to qualify the contribution of an article (Faculty Opinion)\footnote{More information can be found here: \href{https://facultyopinions.com/}{https://facultyopinions.com/}}. For scientific recognition, we rely on the traditional number of citations and six indicators of disruption and consolidation \citep{wu2019large,bu2019multi,bornmann1911disruption}.
+
+Our findings emphasize the crucial role of cognitive dimensions in creativity, significantly impacting originality and success. We show that cognitive diversity always seems beneficial to combine more distant knowledge. In contrast, the within-team average exploratory profile follows an inverse U-shaped relation with combinatorial novelty (i.e. there is a turning point where it is no longer beneficial). The same relation can be found with citation counts, but we show that the cognitive dimension also strongly influences the nature of citations. Teams with more exploitative profiles consolidate science, while those with high exploratory profiles disrupt it only if they are associated with exploitative researchers. The union of those two types of individuals leads to the most disruptive and distant knowledge combinations. To maximize the relevance of these combinations, maintaining a limited number of highly exploratory individuals is essential, as highly specialized individuals must question and debate their novel perspectives. These specialized individuals are the most qualified to extract the full potential from novel ideas and situate them within the existing scientific paradigm.
+
+%------------------------------
+
+
+%------------------------------
+
+The remainder of the paper is organized as follows. In section \ref{lit} we review the existing literature. Section \ref{3} details the creation of our metrics and the methodology for addressing our research questions. Section \ref{results} presents the results of our analysis. Section  \ref{ccl} concludes the paper and outlines future directions for developing novelty indicators.
+
+\section{Background and literature review}
+\label{lit}
+
+This section highlights the team's relevance in fostering creativity in science and emphasises how team size can influence this process. We also underscore the importance of identifying the social dimensions of the team, a crucial factor in generating new knowledge. Finally, we propose a new approach based on the semantic representation of authors' past publications that allows studying the role of the cognitive dimension in a team's ability to produce new and impactful knowledge.
+
+
+%-----------------------------------
+
+ \subsection{Team science as an engine of creativity}
+ 
+        Over the past two decades, there has been a significant increase in interest surrounding the Science of Team Science (SciTS) \citep{falk2011mapping}\footnote{ \justifying For an up-to-date and comprehensive review, see \cite{wang2021science}.}. Since the 1950s, the average number of authors per paper has risen across all scientific disciplines \citep{wuchty2007increasing}. Research collaborations have also become more diverse, inter-institutional collaborations in science and engineering and social science grew by 32.8\% and 34.4\%, respectively, between 1975 and 2005 \citep{jones2008multi}. In addition, international collaboration has also expanded, with one in five research projects now involving multiple countries \citep{xie2012american}.
+
+        Teamwork has proven to be a practical approach to producing impactful scientific results. Articles written by teams tend to have a higher impact, receiving more citations on average and are more likely to become influential than articles authored solely \citep{wuchty2007increasing,whitfield2008group}. Researchers benefit from collaboration in various ways. Collaborative efforts can enhance rigour through co-authors' verification \citep{leahey2016sole} and facilitate the dissemination of their work beyond their immediate networks \citep{leahey2016sole}; this effect is further amplified when collaborations are international or inter-institutional \citep{adams2013fourth,jones2008multi}. Additionally, teams have better access to resources, as projects executed by groups are more likely to apply for funding and succeed in obtaining it \citep{rawlings2011influence}. Teams are more likely to produce novel articles than solo-authored publications \citep{carayol2019, uzzi2013atypical, wagner2019international}. As highly cited work is often associated with a combination of novel and conventional ideas \citep{uzzi2013atypical}, teams of researchers may be more adept at generating novel ideas or striking a balance between novel and traditional concepts than individual authors.
+    
+        
+        Successful team performances put individuals and their interactions at the heart of the creative process.
+         Over recent decades, the perception of teamwork has undergone significant changes. In the early 1990s, the prevailing belief was that groups should not be used for creativity because of inherent process loss in the creative process. This perspective has shifted dramatically, and team collaboration is now considered a critical factor in promoting creativity \citep{paulus2003group}. Creativity relies on individual's existing knowledge base: ``\textit{Creative thinking cannot happen unless the thinker already possesses knowledge of a rich and/or well-structured kind}'' \citep{boden2001creativity}. Knowledge exists on a continuum, ranging from explicit to tacit \citep{nonaka1994dynamic}. The generation of new knowledge occurs through interactions between explicit and tacit knowledge via a process known as the socialization, externalization, combination, and internalization (SECI) spiral. \cite{tahamtan2018creativity} highlighted various approaches reported by researchers for fostering creativity. Engaging in conversations with colleagues seems to remain central to problem-solving and generating new, practical ideas. Hence, new ideas are becoming more challenging to discover as the idea space expands linearly while scientific publications grow exponentially \citep{bloom2020ideas,milojevic2015quantifying}. As scientific knowledge increases, team sizes grow, and agents increasingly specialize their competencies \citep{jones2008multi,jones2009burden}. 
+         
+         The burst of possible combinations in the knowledge space suggests that agents can more effectively recombine information locally \citep{fleming2001recombinant}. ``Local search'' for an inventor involves exploiting existing combinations or using standard technological components. Agents tend to direct their research towards familiar subjects, focusing on topics related to their expertise or that of their co-authors (local search/exploitation) \citep{fleming2001recombinant,nelson1985evolutionary,march1991exploration}. Conversely, exploration (or "distant search") is characterized by using new components or testing novel combinations \citep{fleming2001recombinant,march1991exploration}. The nature of the new combinations realized depends on agents' trade-offs between exploiting and exploring the knowledge landscape. Exploitation reduces the risk of failure, as researchers draw from experience with combinations and architectures that have previously failed \citep{vincenti1990engineers}. Researchers must then collaborate with others to explore the knowledge space more efficiently, and the team's composition might determine this balance between exploration and exploitation.
+        
+ \subsection{Team characteristics in the creative process}
+%-----------------------------------
+        We review here some dimensions of the team composition that affect the scientific process.
+        
+         \underline{\textit{Size dimension}}: The importance of co-authors during the process of creativity has been debated in the literature, and the effect of team size and composition on creativity has been the focus of multiple studies \citep{paulus2003group, shin2007educational, wuchty2007increasing, falk2011mapping, erren2017small,mueller2019building}. Team size shapes and is shaped by the nature of the work carried out. Large teams tend to be more risk-averse and consolidate a field rather than introducing new opportunities \citep{christensen2003innovator,paulus2013understanding,lakhani2013prize,wu2019large}. Larger teams use more up-to-date and influential research in their work, consequently fostering greater engagement within their scientific community and further increasing their impact \citep{wu2019large}. However, large teams are more prone to coordination and communication failures as the entire team must have faith in the project to succeed, as agreement and communication between team members can be challenging and time-consuming \citep{bikard2015exploring}. In fact, the number of people involved in a project can have heterogeneous effects on creativity, and no optimal team size fits every project. A small team may be more useful in the conceptualization phase, while a larger team might be beneficial in the implementation and testing phase of the project \citep{wang2021science}. \cite{shin2007educational} highlight the organization's importance for creativity. Using evidence from Cambridge and AT\&T's Bell Laboratories (home to numerous Nobel Prize winners), they discuss researchers' ideal context for fostering creativity and conclude that the presence of a healthy environment for a small group of people (up to seven) promotes creativity. These results are further confirmed by \cite{lee2015creativity} and \cite{carayol2019}, indicating that the relationship between team size and novelty appears U-shaped and is highly heterogeneous across disciplines. \\
+
+        \underline{\textit{Structural and relational social capital}}: \cite{nahapiet1998social} conceptualize three dimensions of social capital that impact intellectual capital development: structural, relational and cognitive. 
+        Though primarily used to understand intellectual capital development in organizations and firms, the dimensions of social capital presented in \cite{nahapiet1998social} can be applied to the context of knowledge production in science due to their intrinsic relevance to relationship and network dynamics \citep{liao2011improve}. Structural capital examines the links between individuals, and structural distances have been widely studied through collaboration networks (see \cite{kumar2015co} for an extensive review on network collaborations). Relational capital represents the nature and intensity of the connections between team members. A critical factor in intellectual development is the ability to communicate with each other, and the actors' experience reinforces the phenomena \citep{taylor2006superman, liao2011improve, kelchtermans2020off}. For instance, \cite{mcfadyen2004social} emphasize the role of the intensity of past relationships between scientists in fostering new knowledge. Indeed, members with strong relationships, norms, obligations, and mutual trust tend to communicate more easily \citep{liao2011improve}. Other relational aspects, such as hierarchical or geographical dimensions, also impact the knowledge space exploration. For example, supervising doctoral students is not only associated with entering new areas but also extending towards more distant fields \citep{kelchtermans2020off} -- See also Chapter 2 of this thesis. \\
+
+        
+        \underline{\textit{Cognitive social capital}}: The cognitive capital remains challenging to measure as it is linked to the shared background between coauthors and their common language. Cognitive diversity is often encouraged through interdisciplinary projects as the intersection of different perspectives is commonly required to solve complex scientific problems \citep{page2007}. Indeed, people from outside a domain may have some advantage to offer fresh ideas through their distinct knowledge \citep{jeppesen2010marginality,kuhn1962structure}. The effectiveness of generating new knowledge is impacted by factors such as variations in background, belief and reasoning styles among scientists, all of which contribute to cognitive diversity. The cognitive distance between team members is expected to display an inverted U-shaped correlation with both learning and innovation \citep{nooteboom2007optimal}, as people being too distant will face difficulty in communicating, and those being cognitively too similar benefit less from distinct perspectives in the knowledge creation process.
+        
+        Cognitive distances between individuals can be studied through various metrics. \cite{kumar2017author} used, for example, citations networks and citations context in full text. %These indicator's limitations stand in their reliance on citation networks author's most cited work may badly represent her scientific production \citep{niu2016publication}. 
+        \cite{boudreau2016looking} represented the cognitive distance between funding evaluators and the proposal through MeSH terms similarity. Similarly, \cite{ayoubi2017origins} represent the distance between the focal scientist and her team by comparing cosine similarities of referenced journals from scientists' past publications. Other measurements, without being explicit, may relate to cognitive dimensions, \cite{wagner2019international} discovered that international collaborations negatively affect novelty and produce more conventional knowledge combinations, highlighting barriers and transaction costs that influence the production of creative work.
+        Finally, measures of cognitive distance strongly relate to interdisciplinarity. \cite{petersen2021grand} represent author diversity using the discipline of the institution. Using authors' disciplinary diversity, \cite{abramo2018comparison} show that more distant coauthors produce articles with more diverse references. \\
+
+        
+        \underline{\textit{Exploratory profile}}: Individual characteristics and the ability to interact with individuals from different fields are essential to efficiently managing cognitive diversity in a team. When the distance between disciplines is too high, a ``Renaissance'' individual \citep{jones2009burden} can ease their connection \citep{wu2022metrics}. The presence of a scientist with a multifaceted profile bridges the gap between the different backgrounds of other team members. This is crucial as a shared knowledge base between researchers streamlines the socialization process and facilitates knowledge recombination, fostering creativity. \cite{shin2007educational} focused on the relationship between diversity (interdisciplinarity) and creative ideas in groups. \cite{shin2007educational}'s idea is that the presence of a "transformational leader", whose role is to mediate between individuals, each specialized in a different field, leads to greater team creativity. \cite{xu2022flat} provided a first answer to this hypothesis by examining the share of team members engaged in the conceptual work, the L-ratio, which was deduced from the analysis of author contribution reports. The findings suggest that hierarchical teams generate less novelty than egalitarian teams and tend to develop existing ideas more frequently.\footnote{\justifying  Interestingly, their method was expanded in an article with no contribution reports. Through Louvain algorithms, they identified clusters of co-occurring research activities in their first dataset. They then built a neural network to infer author roles based on their characteristics and predicted it for 16 million articles on Microsoft Academic Graph (MAG).} We argue that the notion of transformational leader or renaissance individual is connected to exploratory profile \textit{à la} \cite{march1991exploration}, individuals enabled to link others in the knowledge space due to their ability to navigate in different spaces.
+
+
+
+ \subsection{Exploring the cognitive dimension}
+%-----------------------------------
+
+        We investigate scientific impact through citation networks and recent indicators of disruption and breath and depth \cite{wu2019large,wu_wu_2019,bu2019multi,bornmann1911disruption}. These indicators determine whether a document consolidates a domain or constitutes a founding step. To explore its influence on novelty, we use two approaches, one based on combinatorial novelty indicators \citep{uzzi2013atypical,lee2015creativity,foster2015tradition,wang2017bias,shibayama2021measuring} and one based on external validation via Faculty Opinion (previously called F1000) following \cite{bornmann2019do}. Faculty Opinion is a website hosting reviews of papers tagged as presenting ``New Results'', ``Novel Drug target'', ``Technical advancement'', ``Interesting hypothesis'', and ``Controversial results'', among other categorizations labelled by experts in the field. It allows us to empirically assess the capacity of novelty indicators and our indicators to predict the novelty as perceived by other researchers in the community. 
+        
+        %Employment of novelty indicators is not straightforward. The ``No free lunch'' theorem tells us that no novelty indicator can approximate every facet of knowledge creation.
+        Novelty indicators have been compared and evaluated based on citation count \citep{uzzi2013atypical, lee2015creativity, foster2015tradition, wang2017bias}. \cite{fontana2020new} compared \cite{wang2017bias} and \cite{uzzi2013atypical,lee2015creativity} using randomized citation networks and demonstrated the ability of the \cite{uzzi2013atypical,lee2015creativity} indicators to better track novelty. Their findings are supported by using some Nobel Prize winners' articles and a list of APS milestone articles. Other studies have evaluated these indicators based on surveys, such as \cite{shibayama2021measuring} and \cite{matsumoto2021introducing}, whereas \cite{bornmann2019do} have evaluated them based on labels collected on Faculty Opinion and found similar results as in \cite{fontana2020new}. However, only a few indicators have been compared and tested simultaneously. This study intends to validate the effect of the cognitive dimension on a large variety of metrics. %Other novelty indicators will also be tested, providing a wider comparison of novelty indicators to the literature. 
+
+      
+        Our indicator is not a substitute for other novelty indicators. It does not represent the novelty of an article as it is based upon previous information and would be similar even without the focal article. Instead, it provides an understanding of team composition that would benefit creativity in science.
+        We can think of our measure as a measure of \textit{potential novelty}, i.e. opportunities for new knowledge recombination available through the diversity of background in the team and the capacity of individuals to bridge the gap between other team members. In comparison, combinatorial novelty indicators would capture then the \textit{realized novelty}, i.e. the output of the research conducted by this team in terms of pieces of knowledge used. Finally, Faculty Opinion labelling and other external validation methods can describe the \textit{perceived novelty}, i.e. the peers' perception of this study. Hence, in these terms, we ask whether potential novelty contributes to realized and perceived novelty and its scientific recognition. Two research questions can be drawn regarding the effect of the cognitive dimension on creativity. Do teams with higher cognitive diversity are more likely to approach a subject creatively, demonstrating originality (\textit{perceived} and \textit{realized}) and recognition? Does the presence of \textit{explorative} individuals within a team enhance communication among members and facilitate their exploration of the knowledge space to develop new and relevant solutions to research problems? Studying the cognitive dimension of creativity in science is of great interest, especially as it can help identify how to improve collaboration and communication among researchers with diverse cognitive profiles. Through our metric, we also offer a different approach to resource allocation decisions, giving another picture of teams with a high potential for creative output. \\
+
+
+
+
+
+
+
+
+\section{Data and methods}\label{3}
+
+
+\subsection{Measuring cognitive diversity and exploratory profile}\label{3.1}
+        
+    
+        The proposed metric examines the semantic heterogeneity of researchers' work as a proxy for their cognitive diversity. It thus offers an alternative to using categories, keywords, or citation networks, more complex to be monitored directly by the researchers themselves. Following \cite{hain2020text} and \citep{shibayama2021measuring}, we can embed this list of documents in a vectorial space to apply a distance measure such as cosine similarity \citep{mikolov2013distributed}. We assume that an author of a paper in a specific position within the semantic space possesses knowledge embedded around that position. Our indicator has two properties: it offers a measure of researchers' profiles at the individual level and a measure of distances between them. Consequently, we can proxy the trade-off between exploitation and exploration that a researcher undergoes throughout their career (intra-individual) and the trade-off materializing during the formation of a team (inter-individual) within the same mathematical space. 
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{2_chapter2/figures/indicator_roadmap.jpeg}
+      \caption{Construction of the indicator}
+      \label{figure:mapidic}
+    \end{figure}
+
+    
+    As explained in Figure \ref{figure:mapidic}, we track authors to create a list of authors' past publications. Then, we can create a cognitive profile for each author at a given time $t$; each publication is embedded in the semantic space and represents the cognitive landscape of the author. We restrict to publications up to $b$ years before $t$ to account for researchers' current topics of interest and difficulty retaining information \citep{argote1990persistence}. We can finally define a researcher's exploratory profile at time $t$ by calculating pairs of cosine distances between past papers published. This will create a density of cosine distances which, using the taxonomy of \cite{march1991exploration}, can be interpreted the following way: the fatter the right (left) tail is, the more exploratory (exploitative) the researcher. The same holds for the team. A sizeable right tail indicates a cognitively distant researchers team. This provides us with information on how distant their knowledge base is from others. The greater the distance, the less likely their respective knowledge space can be combined, thus affecting the probability of combining novel ideas. An intra-author and inter-author distribution enables a wide exploration of the relationship between novelty, creativity, and teams.
+
+    
+        
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=\textwidth]{2_chapter2/figures/Author_proximity.png}
+      \caption[Exploratory profile and cognitive diversity]{Exploratory profile and cognitive diversity}
+      \label{figure:indicators}
+    \end{figure} 
+    
+        We model our measures on two different perspectives as represented in Figure \ref{figure:indicators}: intra-author distances, which asses exploratory profile, and inter-authors distances, to capture cognitive diversity. A given focal paper (FP) is written by two authors named 'A'. We retrieve each author's past production, named 'P'. On the one hand, we can then calculate the distance between all publications from a given author (intra-author distances). On the other hand, we can also compare past publications from two authors (inter-author distances). We can build our framework using directed bipartite networks, defined as $G(U,V,E)$. $U$ represents the set nodes for authors, $V$ is the set for articles, and $E$ is the set of links between authors and articles.
+        
+        %More formally, our framework relies on two graphs that are interconnected. One graph for the authors $G_u(X_u,E_u)$, where $X_u$ represent the set of authors and $E_u$ the set of connection between authors. And one for the articles $G_v(X_v,E_v)$, with $X_v$ the set of articles and $E_v$ the citation link between items. A set of interconnections between authors and articles represents links between the two networks. However, as our measures are constructed to quantify novelty at the paper level using information from authors, the citation network is not included. 
+        
+    
+        We only consider collaborations between authors when looking at a given article; collaboration is implicit since the set of parents of a given document $FP \in V$ corresponds to the set of authors that collaborate. For a given document $FP$, an author that has contributed to $FP$ is noted $a$, and the set of nodes that contributes to $FP$ is then $In_{FP} = \{a\in U : (a,FP) \in E\}$. 
+        
+        We want to retrieve all past publications for all authors in $In_{FP}$. The global set of publications before $FP$ is noted $V^{t-b}_{FP}$, the set of articles published $b$ years before the document $FP$. The set of past publications for author $a \in In_{FP}$ is noted $Out^{t-b}_a = \{v \in V^{t-b}_{FP} : (a,v) \in E \}$. For a document $FP$ and an author $a \in In_{FP}$, we retrieve the set of past publications $Out^{t-b}_a$. All $Out_a^{t-b}$ elements vectorial representations are compared, from which distribution of cosine distances are calculated. The distance between two documents $i, j \in Out^{t-b}_a$ is $d_{ij} = 1-COS(T_i,T_j)$ where $T_i$ is the dense vector text representation for document $i$.
+
+
+        \vspace{0.5cm}
+        \textit{\underline{Intra-author semantic distances}}: A distribution of semantic distance score $D_a$ is computed through cosine similarity using all document  $i, j \in Out_a^{t-b}$, the process is repeated for each authors $a \in In_{FP}$. The intra-author distance for a given author $a$ is the q-th percentile ($P_q$) of this distribution and is written as:
+        
+        $$Intra_{a} = P_{q}(D_a)$$
+        
+        A general distribution of the intra-authors publication distances is constructed using the set of distances for all authors $A_{FP} = \{D_a: a \in In_{FP}\}$, the individual trade-off between exploitation/exploration is then captured through the average of the exploratory profiles in a given team.
+        
+        $$Intra_{FP} = \frac{\sum_a (P_{q}(D_a))}{|In_{FP}|}$$
+        
+            
+        
+        \vspace{0.5cm}
+        \textit{\underline{Inter-authors semantic distances}}: A distribution of semantic distance score between authors' previous work is constructed by comparing different authors' publications. For two given authors $a, e \in In_{FP}$, $|Out_a^{t-b}|\times|Out_e^{t-b}|$ distances are used to construct the distribution of distances $D_{a,e}$ between $a$ and $e$. The final distribution then groups together all distances between authors' previous works $B_{FP} = \{D_{a,e}: a, e \in In_{FP}\}$, the trade-off between exploitation/exploration in team composition is captured through the percentile of $B_{FP}$:
+        
+        $$Inter_{FP} = P_{q}(B_{FP})$$
+        
+        
+        Current techniques for large-scale author disambiguation allow the investigation of individual trajectories in science. However, the use of this information comes with a computational cost.
+        This indicator pushes towards a massive use of data because one needs all authors' past publications for a given set of documents. Structuring the data to compute the measure is time-consuming and data-intensive. One needs indeed all papers' text from all authors in a given database.
+        However, using pre-trained embedding models allows direct computing indicators without the requirement of complete database access. Therefore, measures are not dependent on the study sample as indicators of novelty based on cooccurrence matrices but rather on the sample used to train the model. Also, by processing titles and abstracts through embedding techniques, the authors' background is represented with greater granularity than through the keywords or the journals where the authors have been published.
+
+\subsection{Data}
+
+        Our analysis relies on two databases. The first, PubMed Knowledge Graph (PKG), allows us to test the effect of the cognitive dimension on scientific impact and \textit{realized} novelty of articles, while the second, Faculty Opinion verifies whether the cognitive dimension affects the \textit{perceived} novelty by peers. 
+            
+       We use Pubmed Knowledge Graph (PKG), a collection of 35 million scientific papers and books from life science and biomedical journals provided by the National Library of Medicine (NLM) at the National Institutes of Health (NIH). Authors are disambiguated by leveraging Natural Language Processing (NLP) and online data, as outlined by \cite{xu2020building}. We based our analysis on all the 3.5M articles written by 3,276,250 authors and published in 9,348 journals between 2000 and 2005. We selected fairly old data due to the nature of the process studied. Indeed, novel articles are more likely to become "sleeping beauties" and accumulate citations in the long run \citep{lin2021novelty}. Also to compute novelty indicators, we require information about references. We rely both on abstracts of references to embed their semantics and calculate the distance as in \cite{shibayama2021measuring}. Also, we use past publication references' journals to build past cooccurrence matrices used to capture combination existence and difficulty for other novelty indicators. For this purpose, we used the database between 1980 and 2005 to get all information needed, representing 11,261,955 documents.
+        
+        To test if our indicators affect the novelty perceived by peers, we used Faculty Opinion following \cite{bornmann2019do}. Faculty Opinion is a database featuring papers tagged as presenting 'New Results', 'Novel Drug target', 'Technical advancement', 'Interesting hypothesis', and 'Controversial results', among other categorizations determined by the platform users. The platform hosts reviews of the most significant research in Biology and Medicine. This makes it easy to match the articles in the database with PKG. Indeed, from the 190k articles in Faculty Opinion, we found 27,122 in our sample (2000-2005).
+
+\subsection{Empirical strategy}
+
+        To explore the relationship between the team's cognitive dimension and its ability to recombine pieces of knowledge in novel ways and achieve recognition, we start with a basic exploratory data analysis followed by three econometric analyses to test our hypotheses.
+        
+        The first two analyses aim to understand how a team's cognitive diversity and the exploratory profiles of its members impact \textit{perceived} novelty (i.e., peer labelling on Faculty Opinion) and \textit{realized} novelty (i.e., indicators of combinatorial novelty). Then our analysis seeks to comprehend the effect of the cognitive dimension on scientific recognition using citation and disruption measures.
+        
+        \textit{Realized} novelty and scientific impact connections with cognitive dimension are both investigated through PKG, the normalization performed at the field and year levels of this measure provides a measure ranging between 0 and 1, which we model using linear models with cluster robust standard errors at the journal level. Lastly, we examine how the presence of highly exploratory and exploitative individuals influences the team's creativity. This analysis will help determine if cognitive diversity and the presence of exploratory profiles are explicitly visible in an article's knowledge composition.
+        
+        
+        For the analysis of \textit{perceived} novelty, we employ the Faculty Opinion database and model, through Logit and Poisson regressions, the likelihood of an article being labelled with ``novel'' categories (``Technical Advance'', ``Interesting Hypothesis'', ``Novel Drug Target''). In our sample, 80\% of the observations are labelled as 'New Findings', and 95\% of the total sample would be considered new using the top 4 most represented categories (22,216 novel articles versus 1,750 not-novel). The fact that most articles are labelled as new findings makes this category less informative; therefore, we decided to exclude it and remove articles solely labelled with this category. As a result, our prediction is based on a more balanced sample (8,950 novel articles versus 3,605 not-novel). This will enable us to understand whether the cognitive dimension is associated with \textit{perceived} novelty. We do not expect a direct effect but rather hypothesize that cognitive diversity influences a latent variable representing the article's actual contribution. This actual contribution of the paper may or may not be visible in the \textit{realized} novelty measured by novelty indicators but might be then reflected in labelling made by peers. 
+        
+
+\subsection{Variables}  
+
+        
+Variables used in our empirical analysis can be separated into four categories: novelty indicators, scientific impact, cognitive, and control variables. For control variables, aside from data from PKG, we use journals listed in Scimago to control for scientific domains and measure of the impact associated with the journal. Each of our variables is at the paper level. For the empirical strategy, novelty, impact and cognitive measures will be field weighted by year using the percentile rank procedure -- noted (FW). We use the first category of the journal from Scimago to approximate the field. %Every variable field weight will have "fw" as a subscript (e.g. nb\_citation$_{fw}$). Based on the co-authorship network in PKG, we also derive some degree of centrality measures to account for network effects when looking at the effect of team composition on scientific impact.
+
+\subsubsection*{Novelty indicators}
+The indicators used in our analysis are \cite{uzzi2013atypical}, \cite{lee2015creativity}, \cite{foster2015tradition}, \cite{wang2017bias}, \cite{shibayama2021measuring}. A formal mathematical description of them can be found in Chapter 3 of this thesis. Note that we have inversed the sign of the measures related to \cite{uzzi2013atypical} for simplicity and comparison with other indicators. The computation is done with \textit{Novelpy}\footnote{\justifying \textit{Novelpy} is a python package that allows computing novelty and disruptiveness indicators. More details can be found here: \href{https://novelpy.readthedocs.io/}{https://novelpy.readthedocs.io/}}.% Novelty indicators use information from journals and abstracts of the references or MeSH terms from the article to compute the distance between the combination of two items. 
+
+
+\subsubsection*{Scientific impact variables}
+For impact measures, we use citation counts and disruptiveness indicators, also described in Chapter 3. We used all available indicators in \textit{Novelpy}, namely: \cite{wu2019large}, \cite{bu2019multi} and \cite{bornmann1911disruption}.% Disruptiveness indicators evaluate the degree to which publications alter the citation pattern. 
+
+
+%\textit{\underline{\cite{uzzi2013atypical}:} }
+%The "Atypicality" measure proposed by \cite{uzzi2013atypical} compares an observed network to a random network of co-occurrence of journals by computing the frequency Z-score for each combination of journals. The observed frequency is compared with a theoretical frequency generated through Markov chain Monte Carlo simulation, preserving the dynamical structure of citations. 
+
+%\textit{\underline{\cite{lee2015creativity}:} }
+%\cite{lee2015creativity} compares an observed network to a theoretical network by calculating the Commonness score for each combination of journals. The observed frequency of a combination is compared with the expected frequency, which is determined by the product of the degrees of the two entities divided by the total number of combinations. 
+
+%\textit{\underline{\cite{foster2015tradition}:} }
+%The novelty indicator proposed by \cite{foster2015tradition} is based on community detection algorithms and captures the proximity between topics in a network by identifying the community in which they are clustered. 
+
+%\textit{\underline{\cite{wang2017bias}:} }
+%\cite{wang2017bias} is a measure of difficulty on new combinations that are reused after a given publication year, based on cosine similarity between co-citation of journals.
+
+%\textit{\underline{\cite{shibayama2021measuring}:}} 
+% \cite{shibayama2021measuring} proposes a method to measure the diversity of references in a given document using semantic distances. They represent each document in a semantic space and calculate distances using cosine similarity and the documents centroid.
+
+\subsubsection*{Cognitive variables}
+
+\noindent\textit{\underline{Team cognitive diversity:}}
+The mean of the inter-authors semantic distance as defined in Section \ref{3.1} with q=90 for a given paper. It measures to what extent a team is composed of highly cognitively distant authors (i.e. Author 1 background is vastly dissimilar to Author 2 background). Furthermore, we suppose the relation between the team's cognitive diversity and other measures is not linear. We take the square of the team's cognitive diversity to test this.
+\newline
+
+\noindent\textit{\underline{Average exploratory profile:}}
+The mean of the intra-authors semantic distance as defined in Section \ref{3.1} with q=90 for a given paper. It captures to what extent a team comprises authors with distant past publications (i.e. Author 1 worked on diverse subjects). As for team cognitive diversity, we add a square term in the regressions.
+\newline
+
+\noindent\textit{\underline{Number of highly exploratory authors:}}
+To have more information on the team structure, we decided to define a threshold to identify highly exploratory authors. Looking at the intra- author's semantic distance as defined in Section \ref{3.1}. An author is considered highly exploratory if its 90$^th$ percentile is in the top 10\% of all $Intra_{FP}$ in our sample. \newline
+
+\noindent\textit{\underline{Number of highly exploitative authors:}}
+We expect highly exploratory authors to work best with highly exploitative authors (i.e. Novelty is probably most successful with a combination of typical and atypical individuals). We construct this measure following the same procedure as exploratory authors. Looking at the intra- author's semantic distance as defined in Section \ref{3.1}. An author is considered highly exploitative if its 90$^th$ percentile is below our sample's median of all $Intra_{FP}$. \newline
+
+\noindent\textit{\underline{Interaction term between highly exploratory and  highly exploitative authors:}}
+We added an interaction term between the two types of profiles as both competencies might complement each other.
+
+\subsubsection*{Control variables}
+
+%\textit{Degree of centrality:}
+%The degree centrality for an author for a given year was calculated the following way: We do the sum of every weight assigned to past publications in which this author appears. The weight of each paper is $\frac{1}{number\:of\:authors\:-1}$ such that when the number of authors increases, the strength of the relationship between them decreases. Then, we sum every author's degree centrality for each paper. This control variable gives us a measure of the potential network in which this paper will be shared and is probably correlated with impact measures like citations. \newline
+We included as control variables the number of authors, references and MeSH terms. We also controlled for the year and information related to the journal of publication.\newline
+
+
+\noindent\textit{\underline{Scimago Journal Ranking (SJR):}}
+An indicator of a journal's prestige based on weighted citation and eigenvector centrality derived from Scopus' citation networks by Scimago \citep{gonzalez2009sjr}. \newline
+
+\noindent\textit{\underline{Scimago Journal Category:}}
+Scimago provides a classification of journals based on various fields. We used the first category linked to a journal; our database contains journals from 271 categories. 
+
+\subsection{Descriptive statistics and preliminary evidence}
+        
+We further clean our database and restrict it to papers with at least 2 references/ MeSHterms/ authors and with a journal ISSN. Our final dataset represents approximately 2.1M articles. 
+
+Table \ref{tab:desc} presents the descriptive statistics for the variables in our sample. Examining their distribution, it is worth noting that some indicators concentrate novelty around a small number of articles, as in \cite{foster2015tradition} or in \cite{wang2017bias}, merely 21\% of the articles possess non-zero values (measured on references). Also, indicators such as citation count or \cite{uzzi2013atypical} among others, display relatively extreme values. Specifically for \cite{uzzi2013atypical}, it is highly dependent on the z-score computation, when the variance of the journal combination is minimal, the z-score can rapidly become substantial. These disparities in distribution prompted us to apply a percentile rank procedure by field and year, as explained in the previous subsection. 
+
+
+\input{2_chapter2/tables/var_stats}   
+
+
+The correlogram in Figure \ref{figure:correlogram} illustrates the various indicators' interconnection. A hierarchical clustering algorithm is applied to the correlation matrix and several clusters emerge. It includes citation and consolidation indicators, novelty indicators, cognitive dimension indicators, and disruption indicators. Regardless of whether MeSH terms or references are used to derive the indicators, the novelty indicators group remains consistent, suggesting that combinatorial novelty indicators capture a shared underlying dimension of innovation in scientific research. The correlation between \cite{lee2015creativity} and \cite{uzzi2013atypical} is particularly robust since both measures are nearly identical except for the incorporation of the reference's publication year in \cite{uzzi2013atypical}'s resampling process. It should be noted that a negative correlation is expected since low values signify atypicality in \cite{uzzi2013atypical}, while high values represent novelty in \cite{lee2015creativity}, this is why we inverse the sign of \cite{uzzi2013atypical} to get positive correlation between indicators. A strong correlation is observed between \cite{shibayama2021measuring} and our indicators, as it employs the same measurement on references, and some elements may overlap. Specifically, self-citation increases the correlations between \cite{shibayama2021measuring} and our indicator since the same combinations are calculated in the author and reference parts. Moreover, the clustering differentiates between citation count, consolidation indicators (Depth, DeIN), and disruption indicators (DI1, DI5, DI1nok, and Breadth). These distinctions emphasize how consolidation indicators are more closely related to citation count and demonstrate how disruption indicators capture other dimensions of scientific impact.
+
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{2_chapter2/figures/corplot2.png}
+  \caption{Correlogram with hierarchical clustering}
+  \label{figure:correlogram}
+\end{figure}
+
+
+
+
+The development of an author-level indicator necessitates examining its relationship with team size. Figure \ref{figure:team_3d} illustrates how intra- and inter-individual cognitive indicators are strongly associated with team size. Although it is unclear whether cognitive diversity generates a specific team size or if team size produces this diversity, it is visible that as the cognitive diversity within a team increases, the average exploratory profile must also rise to maintain a comparable team size. The hump-shape relationship on both sides is easily observable, suggesting that the more diverse the team and/or the more exploratory the individuals, the smaller the team. Conversely, highly homogeneous teams typically imply smaller average team sizes, even if the average exploratory profile is high. This pattern is partially attributable to the construction of our indicator, which averages distance. In larger teams high distance between members might be compensated by other members that are close to each other. This counterbalancing is less pronounced in smaller teams, resulting in more extreme values. However, several explanations for this phenomenon can be offered. For instance, substantial cognitive diversity might create communication barriers among team members, particularly when individuals are less explorative. Consequently, smaller teams are formed due to potential coordination and knowledge exchange difficulties. In cases with a high average exploratory profile combined with high cognitive diversity, forming smaller teams may be more convenient, as researchers might explore the knowledge space too broadly. Smaller teams could help prevent efforts from dispersing in various directions. As for teams with low cognitive diversity, the absence of cognitive diversity and exploratory profiles could relate to niches where individuals possess similar knowledge and expertise. As a result, many team members might not be necessary, as they can efficiently navigate the local knowledge space. The same argument can be made for individuals with comparable skills and exploratory profiles, as they may represent teams that regularly collaborate on diverse topics. The distinct skill requirements for these teams may be lower, leading to smaller team sizes.
+
+Interestingly, when comparing the analysis of team size with disruption, we confirm the findings of \cite{wu_wu_2019}. As illustrated in Figure \ref{figure:appendix2d} in the Appendix, peripheral observations are more disruptive (represented with DI1nok), corresponding to the location of our smaller teams in Figure \ref{figure:team_3d} right panel. Teams consolidating science, as indicated by the Depth variable, are also, on average, the most prominent teams. Small teams that disrupt science tend to have exploratory profiles and/or diverse team compositions. Science disruption seems to occur through small teams with either highly distinct skills or very exploratory profiles. What seems essential is the ability to access a broader knowledge space, regardless of whether this space is reached through the team's highly explorative profiles or the team's diversity. Teams composed of individuals who are, on average, highly exploratory but with low team cognitive diversity represent teams with similar skills that cover the knowledge space effectively. In contrast, highly diverse teams with specialized individuals also span the knowledge space to propose disruptive ideas, although they may face communication challenges. The combination of these two factors also appears to contribute to disruption, albeit less prominently, suggesting the detrimental effect of excessive diversity.
+Another inverted U-shaped relationship exists between a team's average exploratory profile and novelty indicators. When balanced by a relatively explorative average profile, cognitive diversity appears beneficial without showing a saturation point.
+
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{.52\textwidth}
+  \centering
+      \includegraphics[width=\textwidth]{2_chapter2/figures/intra_inter_aut.png}
+\end{subfigure}%
+\begin{subfigure}{.52\textwidth}
+      \includegraphics[width=\textwidth]{2_chapter2/figures/intra_inter_aut_cont.png}
+\end{subfigure}
+\caption{Team size, exploratory profiles and cognitive diversity}
+      \label{figure:team_3d}
+\end{figure}
+
+
+The relationship differs when we adopt an alternative perspective and consider the proportion of highly exploratory and exploitative individuals within scientific teams. A dome is visible in each indicator, signifying successful trade-offs between exploitation and exploration. Figure \ref{figure:typic_explo} offers insight into the relationship between these two aspects and scientific recognition and combinatorial novelty. Teams with fewer highly exploratory individuals and a higher proportion of highly exploitative individuals typically contribute to consolidating the field (Depth metric). Conversely, groups with a higher proportion of highly exploratory individuals and a smaller proportion of highly exploitative individuals are more likely to initiate disruptions in their fields (DI1nok metric). These observations complement the findings of \cite{uzzi2013atypical}, which suggest that a balance between conventional and atypical knowledge combinations produces the most impactful research. Moreover, this analysis enables us to examine how the balance between exploratory and exploitative individuals affects knowledge creation itself. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=1.05\textwidth]{2_chapter2/figures/typic_explo.png}
+  \caption{Relation between the share of highly exploitative and highly exploratory profile in a team with and Novelty/ Scientific Impact}
+  \label{figure:typic_explo}
+\end{figure}
+
+
+Teams featuring a fair proportion of exploratory individuals and a more sustained level of exploitative individuals seem to be most likely to generate compelling new combinations of knowledge. Figure \ref{figure:typic_explo} suggests that an optimal team composition would consist of approximately 50\% highly exploitative and 20\% highly exploratory individuals to increase the likelihood of combining distant knowledge. The situation is less clear for \cite{shibayama2021measuring}, where a high proportion of highly exploratory individuals appears to be beneficial\footnote{ \justifying This might be connected with the relationship between our measure and the measure of \cite{shibayama2021measuring} as it is measured in a similar manner. Self-citation also directly impacts the relationship between these two metrics as the same combination of articles will be calculated in both metrics.}. Exploratory individuals contribute to the team by introducing fresh and innovative ideas from their extensive knowledge. These individuals can challenge conventional thinking and steer the team in new directions. Simultaneously, they might foster communication among group members with distant knowledge. In contrast, highly exploitative individuals are crucial for refining and optimizing these novel ideas. Their specialized expertise allows the team to identify feasible and effective solutions, ensuring the creative potential of the exploratory individuals is appropriately channelled into tangible outputs. Additionally, their deep understanding of a specific field facilitates effective communication. The highly exploratory profile complements the specialized knowledge and proficiency of the highly exploitative team members. This dynamic enables the team to capitalize on the full potential of their diverse cognitive abilities, optimizing the innovation process and yielding scientific advancements.
+
+
+
+\section{Results}
+\label{results}
+        
+
+\subsection{Cognitive dimension and novelty} 
+\subsubsection{Realized novelty}
+This subsection examines the relationship between the team's cognitive dimension and novelty indicators. To this end, we report the results of an OLS to identify the joint impact of authors' intra-diversity and inter-diversity on the indicators. The outcomes of these models are presented in Table \ref{ref_cog_nov_fw}. 
+% Having a team highly diverse (Or the total opposite) is not enough to have novel combination of journals. Although peculiar at first (e.g The more distant you are the more distant and novel should be your references) but as explained before maybe the different profile of authors, when being really distant, only one guy deals with the references. This result is somewhat moderated on the combination of MeSH terms as seen in Table \ref{table:mesh_cog_nov_fw_pkg} in the Appendix. This could be explained by the fact that MeSH terms follow a clearly define taxonomy giving authors less room to play with them. On the other side the keywords assigned to a paper can be the result of only some authors and not the team as a whole and could reflect less the novelty of a paper in order to facilitate labeling on Pubmed. 
+
+%Results in Table \ref{table:ref_share_nov_fw_pkg} focus on the profile of authors. More specifically we look at the share of highly diverse and highly typical scholars in a paper. The higher the share of highly explorative researcher increase the less novel recombination will be done. Same explanation as above. The weird thing is the share of typical scholars. The higher the share of highly exploitative researcher the more novel combination will be done. The most interesting result is the interaction term between the share of diverse and the share of typical authors. Indeed the positive coefficient suggest that the level of highly typical indivdual affect the link between diversity and combinatorial novelty. This could go back to the idea of a transformational leader where the more typical individual you have the more a highly diverse scholar is needed to do novel combination.
+
+\input{2_chapter2/tables/ref_cog_nov_fw_pkg}
+
+First, we confirm that cognitive diversity in a scientific team fosters realized novelty.
+Team cognitive diversity (Row 1-2) reveals a significant positive effect on combinatorial novelty. This suggests distant individuals can ease the combination of distant journals in the references. The squared term has negative coefficients. However, the turning point is higher than 1, meaning the relationship is strictly increasing (See Table \ref{turning_points_imp} in Appendix). However, it means that the marginal benefit of cognitive distance is decreasing. 
+When interpreting the coefficients, it is important to remember that the independent and dependent variables are expressed in percentile rank within a given field and year. A one percentage point increase in the independent variable's percentile rank implies a $\beta$ percentage point increase in the dependent variable. In our case, the marginal effect of a quadratic term depends on the value of the independent variable. We can calculate marginal effects at the mean values of the independent variable. For example, in \cite{uzzi2013atypical} (model 1), the marginal effect of Author inter$_{abs}$ (FW) at the mean value is calculated this way: $\frac{\Delta y}{\Delta(inter)} = 0.169 - 2 * (-0.031) * Mean(Inter)$. Since variables are expressed in percentile rank, the mean and the median are 0.5. The marginal effect can be then calculated easily, $\frac{\Delta y}{\Delta(inter)} = 0.169 - * (-0.031) = 0.2$. This means that by increasing one percentage point on the ranking of team diversity in a given field and year, one can increase by 0.2 percentage points in the ranking of the most novel articles in the field and year.
+
+On the contrary, the average exploratory profile must remain reasonable to maximize novelty. As visible in Table \ref{turning_points_imp}, the turning points are around 30\% for all indicators except \cite{shibayama2021measuring}, for which it is upper than one. This can mean two things, and this is what we will examine in the second part of this results section, either the researchers have a rather moderate explorative profile, or there is a balance between exploratory and exploitative individuals. A set of profiles that are too exploratory seems detrimental, as does a set of too exploitative profiles. As shown in Table \ref{ref_cog_nov_fw}, this holds for all indicators on references, except for \cite{wang2017bias}, for which the individual effect is negative, one explanation can be the fact that \cite{wang2017bias} control for future reutilization of the novel combination. Indeed this gives a 'scientific impact' dimension to the metrics and the presence of more specialized individuals may impact the relevance of the combination for the community, making it more likely to be reused.
+
+On MeSH terms, as visible in Table \ref{mesh_cog_nov_fw_pkg} in the Appendix, individual exploratory aspects appear to have a direct negative impact. Indexers assign the MeSH terms and may be subject to bias or misinterpretation. In contrast, the references directly relate to the researchers' choices and reflect their interests and preferences. There are two possibilities, indexers may be unable to capture all the nuances and subtleties of research conducted by individuals with high-average exploratory profiles. Alternatively, the novelty of references could be induced by an author bias in citing previous works irrelevant to the contribution. Researchers' past publications do not directly impact indexers, so she might not need to qualify the article with distant MeSH terms because the novelty is not sufficiently explicit. This suggests that MeSH terms do not reflect the diversity of knowledge and ideas present in individual past work but rather the diversity of competencies between team members.
+
+These relations remain consistent when regressions are not performed using percentage rank information, and indicator behavior with MeSH terms and references seems to be much more corroborated, as visible in Table \ref{ref_cog_nov_pkg} and \ref{mesh_cog_nov_pkg} in the Appendix. The fact that the effect is nearly the same on most of the indicators of novelty demonstrates the robustness of this analysis - our measure captures something similar regardless of the construction of the novelty indicator and the information used.\\
+
+The potential for novelty seems more apparent when looking at the exact composition in terms of exploratory profiles, i.e., the share of explorative individuals and the share of highly exploitative individuals.
+In Table \ref{ref_share_nov_fw_pkg}, we replace the average exploratory profile variables with the exploitative and exploratory individual shares and the interaction of these two variables.
+
+\input{2_chapter2/tables/ref_share_nov_fw_pkg}
+
+While cognitive diversity appears to be always beneficial to combine new knowledge, the presence of too many explorative individuals is harmful. Indeed, its presence only becomes beneficial when counterbalanced by a higher share of exploitative individuals. We can clearly see how this trade-off is necessary to create novelty in the regressions. In the same way as before, the coefficients can be interpreted directly, a percentage point increase in the share of highly explorative individuals increases by $\beta$ percentage point in the ranking of the most novel articles in the field and year.
+
+Exploratory individuals will develop new perspectives that specialized individuals will capitalize on to make them succeed. A larger share of specialized individuals facilitates communication among members if they are in the same field; otherwise, scientists with diverse backgrounds appear to facilitate communication among team members who are cognitively distant \citep{page2007}. This mirrors the "Renaissance" individual of \citep{jones2009burden} or the "transformational leader" of \cite{shin2007educational} who can ease connections between distant members and foster the team's creativity.
+
+Too many such individuals would make the exploration less efficient, and the emerging ideas would potentially not be successfully implemented because the embedding of the conducted research in a scientific paradigm would not be sufficient. The results are similar across novelty indicators, except for \cite{shibayama2021measuring}, in which the best team composition is made from non-exploitative, non-highly exploratory researchers. Table \ref{mesh_share_nov_fw_pkg} in the Appendix shows that the results also hold for indicators based on MeSH terms.
+
+The two sets of results on the impact of cognitive distance and researcher profile show that combining specialized and exploratory profiles is a good proxy for potential novelty as it enhances the realized novelty in the team\footnote{ \justifying Table \ref{ref_share_nov_pkg} provided in the Appendix shows that the results are similar when considering un-normalized indicators}. While \cite{uzzi2013atypical} show that this trade-off between conventional and atypical combinations of knowledge is the most impactful, we demonstrate that this idea holds at the team level as well and that these configurations are most likely to achieve atypical combinations.
+
+\subsubsection{Perceived novelty}
+In this subsection, we examine the relationship between the cognitive dimension and novelty as assessed by experts. Specifically, we employ a Logit model to identify the impact of authors' intra-diversity and inter-diversity on the likelihood of being classified in at least one novel category. The results of these models are presented in Table \ref{z_faculty_op_nonew}. The effect of team cognitive diversity plays a positive role in \textit{perceived} novelty, as seen in the first and second specifications. This effect is less clear when considering individual characteristics. The average exploratory profile has a negative impact. In model 3, we can see that our previous results on \textit{realized} novelty (Table \ref{ref_cog_nov_fw}) only holds for the cognitive distance between individuals when tested on \textit{perceived} novelty. In contrast, when examining the specifications with the share of highly exploratory and exploitative individuals, the results corroborate the regressions performed on \textit{realized} novelty. The proportion of highly exploratory individuals has a negative effect. Instead, typical individuals play a positive role, and the intersection of both types of researchers is indeed positive for predicting novelty. Note that in this specification, cognitive diversity between members is no longer significant.
+
+\input{2_chapter2/tables/z_faculty_op_nonew}
+
+However, when examining Table \ref{aut_cog_f1000} in the Appendix, we can see that the effects are quite heterogeneous across labels. We chose the four labels for which more than 1000 papers had been classified to perform the regressions. The effect of cognitive distance between team members is visible in the ``Technical Advance'' category but not significant for the remaining labels. Conversely, in Table \ref{aut_share_f1000}, we can see that the results in terms of exploratory profiles are mainly driven by the 'Interesting Hypothesis' label. Results here are a bit different since we observe a U shape, meaning that highly specialized or highly diverse teams most often publish articles labelled as ``Interesting hypotheses''. Results are quite similar when using Poisson regression and modelling the number of times a paper is labelled in a given category as visible in Table \ref{aut_cog_f1000_poisson} and Table \ref{aut_share_f1000_poisson} in the Appendix.
+
+%This could be explained by a bias in Faculty Opinion. The mean of citation of papers labelled by experts is 220 and only of 41 for others. This means that the novelty perceived is probably biased by citation, and the result in the first econometric analysis could be an artefact of impact.
+
+
+
+\subsection{Cognitive dimension and impact}
+
+This subsection examines the relationship between the team's cognitive dimension and impact measures. To this end, we report the results of an OLS to identify the joint impact of authors' intra-diversity and inter-diversity on the indicators. The outcomes of these models are presented in \ref{cog_imp_fw_pkg} and \ref{share_imp_fw_pkg}. 
+
+Our analysis emphasises the need to differentiate the forms of impact to understand better how the cognitive aspect influences scientific recognition. Indeed, we use the traditional indicator of the number of citations and indicators of disruption and consolidation. The composition of the teams has a significant influence on the type of impact of the studies conducted.
+
+
+The Table \ref{cog_imp_fw_pkg} regression tables indicate a double inverse U-shaped relationship between the cognitive dimension and the number of citations. Table \ref{turning_points_imp} shows that both turning points are around 45\%. Following Uzzi, a too-conventional work might not be as impactful as the contribution is more marginal. Conversely, peers may not sufficiently consider a too-novel study. This phenomenon is reflected in the composition of the teams as we can see in the differences between consolidation and disruption indicators. Indeed, to consolidate, it is necessary to have a team with a low average exploratory profile and low average cognitive distance between members. The relationship is negative for consolidation indicators (DeIn and Depth) for both intra and inter-individual levels; the effect is sometimes captured via quadratic terms. This means that cognitive diversity is negatively related to the fact that papers citing the focal paper also cite each other or cite many of the references from the focal article. Specialized teams are the ones who consolidate the science.
+
+\input{2_chapter2/tables/cog_imp_fw_pkg}
+
+For disruptive indicators, the picture is rather different (DI1, DI5, DI1nok and Breadth). Cognitive distance still seems to be globally favorable for disruption. Then, the Breadth disruption indicator, which examines how often articles citing the focal paper also cite each other, seems to indicate a U-shaped relationship with a turning point at 0.33, i.e. if the individuals are very distant or if they are very close, this produces the most disruptive articles in the sense that the citations will be concentrated towards the focal paper.
+
+Although not always significant, the intra-individual effect is more mixed; teams with higher average explorative profiles globally appear to have a higher disruption potential, but this does not hold for DI1. The DI1NOK index follows the same pattern as DI5, with the exception that it is the quadratic term that takes over.
+
+The articles that are consolidating science are articles with low team diversity and low average exploratory profiles. Here we can observe the notion of highly specialized individuals who conduct more confirmatory and therefore consolidating research. The opposite is true for disruption. The teams' diversity always seems beneficial for proposing disruptive ideas. Articles receiving the most citation are again a matter of a trade-off between a cognitively not-too-distant team and a somewhat reasonable average level of exploration\footnote{  \justifying For regressions without field-year normalization as presented in Table \ref{cog_imp_pkg}, the results are more mixed and less clear. The cognitive aspect seems to follow a U-shaped pattern, with teams that are very close or distant being the most disruptive. The results are more robust for breadth, with diversity consistently appearing to be beneficial.}.
+
+
+In Table \ref{share_imp_fw_pkg}, we specify the team's composition in terms of exploratory/exploitative profile and found that the relationship of the cognitive distance with the impact measures remains almost similar. For consolidation metrics and citation counts, the share of exploitative individuals is clearly beneficial. The exploitative profile reduces the risk of failure as researchers learn from experience and combinations that have failed \citep{vincenti1990engineers}.
+Whereas too exploratory profiles seem to affect the expected number of citations negatively, the effect appears mixed for consolidation since it is positive DeIn and insignificant for Depth. In both cases, combining the two types of profiles is harmful. At the same time, the share of exploitative individuals is positive, suggesting that combining these two types of profiles is not optimal for consolidating research.
+To achieve disruption, it is better to minimize the number of individuals who are too exploratory or too specialized, but combining both types of profiles seems once again essential. We can see how the impact of highly explorative profiles is always negative, and the impact of exploitative profiles is also negative. Still, the interaction between the two is always positive for all disruptiveness measures.
+
+\input{2_chapter2/tables/share_imp_fw_pkg}
+
+In conclusion, the analysis shows how teams with a high share of specialized individuals or low average exploratory profiles are teams that consolidate science. In contrast, teams that get the most recognition in terms of disruption combine highly exploitative and highly exploratory individuals and have cognitively more distant members\footnote{  \justifying  For regressions without field-year normalization (see Table \ref{share_imp_pkg}), the results are less homogeneous for the cognitive distance aspect, but the combination of explorative and exploitative is robust. The interaction of the two consistently leads to disruption.}.
+
+
+
+
+
+\section{Conclusion}
+\label{ccl}
+
+This paper examines the effect of exploratory scholars and, in a broader way, team composition on creativity. Our findings suggest that the cognitive dimension plays a crucial role in the creative process, and significantly influences the two pillars of creativity: originality and success. We first show that the team's cognitive diversity strongly influences novelty (\textit{realized} and \textit{perceived}) of the research conducted. We also show that a double-inversed U-shaped relationship exists between cognitive dimensions (intra and inter) and the impact in terms of citations. Our study also highlights the strong connection between the cognitive dimension and the nature of these citations. Teams with more exploitative profiles tend to consolidate science, while those with more exploratory individuals disrupt it and propose more distant knowledge combinations, only when associated with exploitative ones. Our research underscores how team composition in terms of profiles lies at the heart of scientific creativity.
+
+%By specifying the cognitive profiles of individuals, we demonstrate that the joint presence of highly exploratory and exploitative individuals constitutes the most capable team compositions for disrupting science and proposing the most distant knowledge combinations. Our findings emphasize the importance of maintaining a limited number of highly exploratory individuals to maximize the relevance of knowledge combinations achieved. It is crucial that the new perspectives brought by exploratory individuals are questioned and debated within a group of highly specialized individuals who can extract the full potential of these novel ideas and situate them in relation to existing scientific paradigms.
+
+Multiple limitations arise in our study. First, concerning data used, PKG is based on advanced heuristics and algorithms to disambiguate authors using affiliation and additional metadata \cite{xu2020building}. While there is a considerable amount of research on addressing noise in Knowledge Graphs \citep{fasoulis2020error} and improvements in these methods may increase their reliability in the future, we cannot guarantee that errors or inconsistencies will not occur when dealing with author-level information in PKG. 
+
+Other shortcomings are directly related to the creation of our indicator. First, many methods and hyper-parameters were chosen for the simplicity of computation. The embedding is a pre-trained model from SpaCy and is not state-of-the-art. One should compare the behavior of different embedding techniques but also on what kind of text they are applied and the distance measure used. We suspect that the two papers might be close given a specific embedding and distance measure but highly distant given other parameters. In addition, the distance between the two papers would vary depending on whether the distance metric is applied to the paper's title, abstract, or full text. The semantic distances between researchers can be influenced by biases inherent in the fields and journal practices. For example, if researchers publish in different journals, the structure and format of their abstracts may be affected even if their research topic or area of expertise remains unchanged. Another hyper-parameter we used is the time window for an author's past publication. We considered a time window of 5 years. This suggests that any paper published by the author before this point would not be captured. One could argue that past behavior influences current behavior, and a highly diverse background can be proxied by recent publications. Yet no evidence supports this hypothesis. Another issue is how we define authors' cognitive aspect by considering only past publications. Although we do not try to approximate the skills of a researcher but only their disposition to do diverse research, we are not sure how working on a topic is enough to understand then and manage this new knowledge. This raises the question of the exact competencies of a transformational leader and if the past paper is sufficient to proxy it. Also, a specialized author could have previously worked on distant papers but only on his topic/methodology. Our measure defines it as diverse, yet is it true? Although solo publications can be used to construct an author's profile, the increasing significance of teamwork in scientific research makes it uncertain whether a complete and precise profile can be established solely on this basis. Another option could be to incorporate external information, such as educational background, and assign greater weight to papers that align with the author's education. However, obtaining this information can be challenging as it often requires web scraping, which is not easily scalable. The last issue in our mind about using past publications is ghost and honorary authorship as it is common that some authors contributed very little to the production of the article. \citep{sugimoto2018measuring,pruschak2022and}. Both are problems to consider while defining a coauthored paper as part of your knowledge space.
+
+In our analysis, we solely focused on the cognitive diversity of researchers, but diversity encompasses various aspects as highlighted by prior research studies \citep{medin2012diversity, hofstra2020diversity}. According to \cite{koopmann2021proximity},  there are four proximity dimensions among researchers, namely cognitive, institutional, social, and geographical. Relying solely on PKG to approximate all of these dimensions could be challenging. Still, alternative sources such as OpenAlex could provide more comprehensive information on a researcher's institutions, past institutions, and authors' characteristics. For instance, relying on PKG to construct a researcher's seniority could be biased because of the restriction on health sciences papers. Exploring these additional channels could lead to developing supplementary measures that complement cognitive diversity.
+
+Another area worth exploring is the temporal dynamic between exploring new ideas and exploiting existing ones. As we discussed earlier, discovering new concepts is essential for addressing major challenges. However, there is often a pattern of moving through cycles of exploration and exploitation within a particular field. Similarly, authors may initially focus on a particular subject and then switch to a different area to gain a fresh perspective on the first one once they have developed sufficient expertise.
+ 
+To increase the efficiency of the scientific system, it is necessary to conduct further research on the composition of research teams and their impact on creativity. Our preliminary results indicate that policymakers and grant evaluators should consider both individual and team-level characteristics and not only citations when making decisions about research funding and support. We have explored some research avenues to deepen our understanding of this phenomenon, and we encourage other researchers to build upon our work in this area. By continuing to investigate these factors, we can develop more effective strategies for supporting and fostering creativity within research teams, ultimately leading to more impactful and innovative scientific outcomes.
+
+
+
+%\section{Figures}
+
+%    \begin{figure}[h!]
+%      \centering
+%      \includegraphics[width=1.1\textwidth]{2_chapter2/figures/intra.png}
+%      \caption{Relation between cognitive diversity, exploratory profile and Novelty/ Scientific Impact}
+%      \label{figure:noclue}
+%    \end{figure}
+
+\newpage
+
+\section{Appendix}
+\section*{Figures}
+
+    \begin{figure}[h!]
+      \centering
+      \includegraphics[width=1.1\textwidth]{2_chapter2/figures/intra.png}
+      \caption{Relation between cognitive diversity, average exploratory profile and Novelty/ Scientific Impact}
+      \label{figure:appendix2d}
+    \end{figure}
+
+\newpage
+\section*{Regressions}
+
+\subsection*{Novelty indicators and Faculty Opinion}
+
+%\input{2_chapter2/tables/nov_f1000}
+%\input{2_chapter2/tables/nov_f1000_poisson}
+
+%\input{2_chapter2/tables/aut_cog_f1000_poisson}
+
+\input{2_chapter2/tables/aut_cog_f1000}
+\input{2_chapter2/tables/aut_cog_f1000_poisson}
+\input{2_chapter2/tables/aut_share_f1000}
+\input{2_chapter2/tables/aut_share_f1000_poisson}
+
+\clearpage
+
+\subsection*{Novelty indicators with Mesh Terms}
+\subsubsection*{Cognitive diversity and average exploratory profile effect on Novelty}
+
+\input{2_chapter2/tables/mesh_cog_nov_fw_pkg}
+
+\clearpage
+\subsection*{Share of Highly Exploratory Profile}
+
+
+\input{2_chapter2/tables/mesh_share_nov_fw_pkg}
+
+\clearpage
+\subsection*{Turning points}
+
+
+\input{2_chapter2/tables/turning_points}
+
+\newpage
+\subsection*{Regression without field-year weighting}
+\input{2_chapter2/tables/ref_cog_nov_pkg}
+\input{2_chapter2/tables/mesh_cog_nov_pkg}
+\input{2_chapter2/tables/cog_imp_pkg}
+
+
+\input{2_chapter2/tables/ref_share_nov_pkg}
+\input{2_chapter2/tables/mesh_share_nov_pkg}
+\input{2_chapter2/tables/share_imp_pkg}
